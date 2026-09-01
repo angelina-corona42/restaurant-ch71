@@ -34,14 +34,6 @@ logout("Leticia");
 //Displays the actual value of the parameter
 // Argument = the actual value you give when calling the function, in this case "Leticia" is the argument for the parameter "user"
 
-
-/* 
-Good Visual Rule: 
-
-function add (...) = DECLARING / creating the function 
-add(...) = CALLING / running the function
-*/
-
 //------3. Functions with 2-3 parameters ------
 
 // Parameter lets the function be reusable, so you can call it with different values.
@@ -75,16 +67,6 @@ Am I creating a new variable myself?
 YES = use let or const
 */
 
-
-// Mini Challenge #1 - Create a function that takes a number as a parameter and doubles it. Call the function and print the result to the console.
-
-function doubleNumber(num){
-    let total = num * 2;
-    console.log(`${total}`);
-}
-
-doubleNumber(2);
-
 // ---- 4. Return -----
 // "return" is a keyword that allows you to send a value back to the place where the function was called.
 
@@ -99,54 +81,121 @@ function add (num1, num2){
 let x = add(10,13) 
 // This is where the function is called, this stores the the returned value outside the function in a variable called "x"
 
+/* ------Good Visual Rule: -------
+
+function add (...) = DECLARING / creating the function 
+add(...) = CALLING / running the function
+
+*/
+
 console.log (`The result is: ${x}`);
 
-//------ 5. return vs console.log ------
+//------ 5. Use between return vs console.log ------
 
-//v1: console.log 
+// ---- console.log() -----
 
 function addWrong(num1, num2){
     console.log(num1 + num2);
 }
 //Inside Function: Is being told to display the calculation = 10
-// console.log() can show you a calculation even if the function does not retunr anyhting
+// console.log() can show you a calculation even if the function does not return anyhting
 
 let result1 = addWrong(4,6);
 console.log(result1); 
 // This will print "undefined" because the function does not return a value
 
 
-//v2: return 
+// ----- return -------
+
+// return gives a value back to the place where the function was called, so it can be stored in a variable and used later
+
 function addCorrect(num1, num2){
     return num1 + num2; 
 }
-let result2 = addCorrect(4,6);
-console.log(result2); //10
+let result2 = addCorrect(4,6); // This will become let result2 = 10 because the function returns the value of the calculation
+
+console.log(result2); // This will display 10 on the console
 
 
-//Example 6 - using the return value in another calculation 
+//------ 6. Using the return value in another calculation ------
 
 function applyDiscount(price, discountPercent){
+    // price = 100, discountPercent = 0.10, this can almost be thouhgt of as being replaced by its retunred value
+
     let discount = price * discountPercent;
+    // discount = 100 * 0.10 = 10
+
     return price - discount;
+    // return 100 - 10 = 90
 }
 
-function addDeliveryfee(total,fee){
+function addDeliveryFee(total,fee){
     return total + fee;
+    // return 90 + 0.10 = 90.10
 }
 
-let originalPrice = 100;
-let priceAfterDsicount = applyDiscount()
-let finalPrice = addDeliveryfee (originalPrice, 0.10);
+let originalPrice = 100; 
+// You plug this into the applyDiscount function as the price parameter
+
+let priceAfterDiscount = applyDiscount(originalPrice, 0.10); 
+// the function will return as 90 due to the returned value of the applyDiscount function
+
+let finalPrice = addDeliveryFee (priceAfterDiscount, 0.10);
+// the function will return as 90.10 due to the returned value of the addDeliveryFee function
 
 console.log("Original price: $" + originalPrice);
-console.log("After discount $" + priceAfterDsicount.toFixed(2));
+//this will display "Original price: $100" because the originalPrice variable is 100
+
+console.log("After discount $" + priceAfterDiscount.toFixed(2));
+// the toFixed(2) method is used to format the number to two decimal places, so it will display "After discount $90.00"
+
 console.log("After discount $" + finalPrice.toFixed(2));
+// the toFixed(2) method is used to format the number to two decimal places, so it will display "After discount $90.10
 
-// Mini Challenge #2'
+/*                     ---- Note ----
+the dot (.) = use something that is connected to the value of the variable 
 
-function combineNames(firstName="Unknown", lastName="Unknown"){
-    console.log(`${firstName} + ${lastName}`)
+A method is a a function that belongs to a specific value
+*/
+
+// 7. ---- Global vs Local ----
+
+/*
+global variable = created outside a function can usually be used inside and outside
+
+local variable  = created inside a function only exists inside that function
+*/
+
+let globalVar = "I exist everywhere";
+
+function showScope(){
+    let localVar = "I only exist inside this fn";
+    
+    console.log(localVar);
+}
+
+showScope();
+console.log(globalVar)
+//console.log(localVar); - ERROR localVar does not exist, in order to see it outside the function, you need a return
+
+
+// Mini Challenge #1 - Create a function that takes a number as a parameter and doubles it. Call the function and print the result to the console.
+
+function doubleNumber(num){
+    let total = num * 2;
+    console.log(total);
+}
+
+doubleNumber(2);
+doubleNumber(5);
+
+// Note: The function does not return a value, it just prints the result to the console. If you wanted to use the doubled value later, you would need to use "return" instead of "console.log".
+
+// Mini Challenge #2 - Combine Names: Create a function called 'combineNames' that takes two parameters : firstName and lastName, and combines them into a full name. 
+
+function combineNames(firstName, lastName=){
+    let fullName = firstName + lastName;
+    console.log(`"Hello, my name is" ${firstName} ${lastName}`);
 }
 
 combineNames ("Brian, Shepard");
@@ -162,22 +211,6 @@ convertToSeconds(1);
 convertToSeconds(2);
 convertToSeconds(10);
 
-
-
-
-// Global vs local 
-
-let globalVar = "I exist everywhere";
-
-function showScope(){
-    let localVar = "I only exist inside this fn";
-    console.log(globalVar);
-    console.log(localVar);
-}
-
-showScope();
-console.log(globalVar)
-//console.log(localVar); - ERROR localVar does not exist
 
 // Mini Challenge #4 : Write two functions: one that calculates a price with tax and one that calculates a tip on that total. Call them in sequence so the result of the first goes into the second. Print the original price, the total with tax, and the tip amount.
 
