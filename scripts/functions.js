@@ -169,7 +169,7 @@ console.log(budget);
 
 //Solution #7 
 
-let budget = 1000; // 
+let  = 1000; // 
 
 function spendMoney(amount){
     let remaining = budget - amount; 
