@@ -1,22 +1,62 @@
 console.log("Functions JS");
-//1. Decalre the fn (create the  function)
+//----1. Decalre the fn (create the  function)-----
+// This says "I am creating a function called login"
 function login(){
-    console.log("Welcome to the system");
+    console.log("Welcome to the system"); 
+    /* 
+    This runs the built in console.log function and prints the message to the (js) console 
+    */
+
+    /* 
+    If it was just the console.log() function, it would not run because only the function was defined 
+    */
 }
 
-//2. Call fn (code, console, user)
+/* Mental Note 
+function login() { } = write the recipe 
+login(); = make the recipe
+console.log() = one instruction inside the recipe
+*/
+
+//-------2. Call function (fn) ------
+
+// This means run the login function
 login();
 
-//Ex 2. Fn with 1 parameter
-function logout(user){
+//------Function with 1 parameter (code, console, user)------
+// "user" is considered a parameter, a parameter is a temporary placeholder for a value that will be used
+
+function logout(user){ // This says a function called logout, and when it runs, it expects one peice of info called "user"
     console.log("Goodbye " + user + " see you later");
 }
 
 logout("Leticia");
+//Displays the actual value of the parameter
+// Argument = the actual value you give when calling the function, in this case "Leticia" is the argument for the parameter "user"
 
-//Example 3. 2-3 parameters 
-function gradeExam(student, correctItems, points){
+
+/* 
+Good Visual Rule: 
+
+function add (...) = DECLARING / creating the function 
+add(...) = CALLING / running the function
+*/
+
+//------3. Functions with 2-3 parameters ------
+
+// Parameter lets the function be reusable, so you can call it with different values.
+
+/* 
+"let" and "const" are --keywords-- that you use when you are creating a variable yourself, 
+ you do not use "let" or "const" when you are using a parameter, because the parameter is already created for you.
+*/
+
+function gradeExam(student, correctItems, points){ 
+    // These are parameters so they do not need "let" or "const"
+
     let totalPoints = correctItems * points;
+    // "totalPoints" is a new variable that is created inside the function, so it needs "let" or "const"
+
     console.log(`${student} grade of exam is: ${totalPoints}`);
 }
 
@@ -24,7 +64,19 @@ gradeExam("Andy", 10, 1);
 gradeExam("Angy", 9, 1);
 gradeExam("Isaac", 8, 1);
 
-// Mini Challenge
+/* ------Mental Note For 2-3 parameters:-----
+
+Did the variable come through the function parentheses?
+
+YES = don't use let/const
+
+Am I creating a new variable myself?
+
+YES = use let or const
+*/
+
+
+// Mini Challenge #1 - Create a function that takes a number as a parameter and doubles it. Call the function and print the result to the console.
 
 function doubleNumber(num){
     let total = num * 2;
@@ -33,16 +85,46 @@ function doubleNumber(num){
 
 doubleNumber(2);
 
-// Example 4 Return 
+// ---- 4. Return -----
+// "return" is a keyword that allows you to send a value back to the place where the function was called.
+
 function add (num1, num2){
-    let total = num1 + num2;
-    return total;
+    let total = num1 + num2; 
+    // This is a local variable, which then becomes 10 + 13, this stores the calculation inside the function
+
+    return total; 
+    // This sends the value of total back to the place where the function was called
 }
 
-let x = add(10,13)
+let x = add(10,13) 
+// This is where the function is called, this stores the the returned value outside the function in a variable called "x"
+
 console.log (`The result is: ${x}`);
 
-//Example 5 - using the return value in another calculation 
+//------ 5. return vs console.log ------
+
+//v1: console.log 
+
+function addWrong(num1, num2){
+    console.log(num1 + num2);
+}
+//Inside Function: Is being told to display the calculation = 10
+// console.log() can show you a calculation even if the function does not retunr anyhting
+
+let result1 = addWrong(4,6);
+console.log(result1); 
+// This will print "undefined" because the function does not return a value
+
+
+//v2: return 
+function addCorrect(num1, num2){
+    return num1 + num2; 
+}
+let result2 = addCorrect(4,6);
+console.log(result2); //10
+
+
+//Example 6 - using the return value in another calculation 
 
 function applyDiscount(price, discountPercent){
     let discount = price * discountPercent;
@@ -81,23 +163,7 @@ convertToSeconds(2);
 convertToSeconds(10);
 
 
-//Example 6 Retun vs console.log 
 
-//v1: Console 
-
-function addWrong(num1, num2){
-    console.log(num1 + num2);
-}
-
-let result1 = addWrong(4,6);
-console.log(result1); // undefined, nothing was returned! 
-
-//v2: return 
-function addCorrect(num1, num2){
-    return num1 + num2; 
-}
-let result2 = addCorrect(4,6);
-console.log(result2); //10
 
 // Global vs local 
 
@@ -169,7 +235,7 @@ console.log(budget);
 
 //Solution #7 
 
-let  = 1000; // 
+let budget = 1000; // 
 
 function spendMoney(amount){
     let remaining = budget - amount; 
