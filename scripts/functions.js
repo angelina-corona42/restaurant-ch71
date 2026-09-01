@@ -143,7 +143,7 @@ function rectangleArea(width, height){
 console.log(recArea(3, 5));
 
 function rectanglePerimeter(wdith, height){
-    let perimeter = width * lenght 
+    let perimeter = width * length;
 }
 
 //Mini Challenge # 6 
