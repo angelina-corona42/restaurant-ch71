@@ -193,17 +193,19 @@ doubleNumber(5);
 
 // Mini Challenge #2 - Combine Names: Create a function called 'combineNames' that takes two parameters : firstName and lastName, and combines them into a full name. 
 
-function combineNames(firstName, lastName=){
-    let fullName = firstName + lastName;
-    console.log(`"Hello, my name is" ${firstName} ${lastName}`);
+function combineNames(firstName, lastName){
+    let fullName = firstName + " " + lastName; 
+    // " " this is a space between the first and last name
+
+    console.log(`Hello, my name is ${fullName}`);
 }
 
-combineNames ("Brian, Shepard");
+combineNames ("Brian", "Shepard");
 
-//Mini Challenge #3
+//Mini Challenge #3 - Create a function that takes a number of minutes as a parameter and converts it to seconds. 
 
 function convertToSeconds(min){
-    let seconds = min*60;
+    let seconds = min* 60;
     console.log(`${min} -> ${seconds}`);
 }
 
@@ -214,49 +216,54 @@ convertToSeconds(10);
 
 // Mini Challenge #4 : Write two functions: one that calculates a price with tax and one that calculates a tip on that total. Call them in sequence so the result of the first goes into the second. Print the original price, the total with tax, and the tip amount.
 
-function calcTax(price, percent){ //I need to fix this once I understand this more 
-    let tax = price * tax;
-    return price - tax;
+function calcTax(price, tax){
+    let taxAmount  = price * tax;
+    return price + taxAmount;
 }
 
-function calcTip(total,fee){
-    return total + fee;
+function calcTip(total,tipPercent){
+    return total * tipPercent;
 }
 
 let price = 100;
-let orignalTax = priceTax();
-let orignalTip = tipTotal();
-let totalPrice = (0.05);
+let priceWithTax = calcTax(price, 0.05);
+let originalTip = calcTip(priceWithTax, 0.18);
+let totalPrice = priceWithTax + originalTip;
 
-console.log("Original price: $" + originalPrice);
-console.log("Original Tax $" + applyTax.toFixed(2));
-console.log("Final Price  $" + finalPrice.toFixed(2));
+console.log("Price: $" + price);
+console.log("Price with Tax $" + priceWithTax.toFixed(2));
+console.log("Original Tip $" + originalTip.toFixed(2));
+console.log("Final Price  $" + totalPrice.toFixed(2));
 
-// Mini Challenge 5 (Also look for help on this example)
+// Mini Challenge 5 - Create a function `rectangleArea` that calculates `width` and `height` to find the area of a rectangle. The function `rectanglePerimeter` should take two parameters: width and height. It should return the perimeter of the rectangle. Call both with the same values (width: 5 and height: 3) and print the results to the console using template literals: "Area: 15, Perimeter: 16".
 
 function rectangleArea(width, height){ 
-    let area = width * height;
-    return area; 
+    let recArea = width * height;
+    return recArea; 
 }
 
-console.log(recArea(3, 5));
+console.log(rectangleArea(3, 5));
 
-function rectanglePerimeter(wdith, height){
-    let perimeter = width * length;
+function rectanglePerimeter(width, height){
+    let recPerimeter = 2 * (width + height);
+    return recPerimeter;
 }
+console.log(rectanglePerimeter(3, 5));
+console.log(`Area: ${rectangleArea(3, 5)}, Perimeter: ${rectanglePerimeter(3, 5)}`);
 
-//Mini Challenge # 6 
+//Mini Challenge #6 - Fix the Bug : The function `calculatePaycheck` should take two parameters: `hoursWorked` and `hourlyRate`. It should calculate the gross pay, deduct 20% for taxes, and return the net pay. Call the function with 40 hours worked at $15/hour and print the result to the console.
 
-function calculatePayChaeck(hoursWorked, hourlyRate) {
+function calculatePaycheck(hoursWorked, hourlyRate) {
     let gross = hoursWorked * hourlyRate;
     let taxes = gross * .20;
     return gross - taxes; 
 }
-let paycheck = calculatePayChaeck(40, 15);
+let paycheck = calculatePaycheck(40, 15);
 console.log (`"Your paycheck is: " ${paycheck}`);
 
-//Mini Challenge 7 
+//Mini Challenge #7 - Scope Issue : The function `spendMoney` should take an `amount` parameter and deduct it from a global variable `budget`. However, there is a scope issue that needs to be fixed. Call the function with an amount of 200 and print the remaining budget to the console.
 
+/* ----- Wrong Example of scope issue:------
 let budget = 1000; // The problem is that there is two many "budget"
 
 function spendMoney(amount){
@@ -266,7 +273,9 @@ function spendMoney(amount){
 console.log(spendMoney(200));
 console.log(budget); 
 
-//Solution #7 
+*/
+
+//Solution #7 -- Correct way to use the global variable "budget" inside the function is to not declare it again with "let" or "const", just use it directly.
 
 let budget = 1000; // 
 
