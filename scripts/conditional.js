@@ -138,26 +138,19 @@ function userType(){
 
 //Challenge 4: 
 
-function getDiscount(price, totalDiscount){
-    let totalAmount = price * totalDiscount;
-    return price + totalAmount;
+function getDiscount(totalAmount) {
+    if (totalAmount > 50) {
+        return .15;
+    } else if (totalAmount > 30) {
+        return .1;
+    } else if (totalAmount > 15) {
+        return .05
+    }
+    return 0;
 }
-let totalAmount = 45 
-
-if (totalAmount >= 50){
-    return 0.15
-}else if (totalAmount >= 30){
-    return 0.10
-}else if (totalAmount >=0.05){
-    return 0.05
-}
-else{
- return 0;
-}
-
-function calcDiscount (total, discount){
-    return total - (total*discount);
-}
+function calculateDiscount(total, discount) {
+    return total - (total * discount);
+}   
 let price = 60;
 let discount = getDiscount(price);
 let total = calculateDiscount(price, discount);
