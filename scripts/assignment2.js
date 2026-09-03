@@ -40,5 +40,5 @@ let totalPrice = calculateTotal(finalPrice, taxRate);
 console.log("Price: $" + finalPrice.toFixed(2));
 console.log("Total with Tax  $" + totalPrice.toFixed(2));
 console.log("Tip Amount  $" + calculateTip(totalPrice, tipPercent).toFixed(2));
-console.log("Total Price  $" + (totalPrice + calculateTip(totalPrice, tipPercent)).toFixed(2));
+console.log("Total Price  $" + (totalPrice + calculateTip(totalPrice, tipPercent)).toFixed(2)); // This would have probaly takenn to long, the most eeficent way would would be not to use calculateTip twice, but to store it in a variable and then use that variable in the final calculation.
 
