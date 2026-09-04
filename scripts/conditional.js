@@ -1,26 +1,39 @@
 console.log("Conditional logic initialized.");
 
-//if statement conditional (y/n)
+//if statement asks a yes/no question about a condition 
 //--- Syntax: if (condition) { code to run if true }
 
 let result = 30;
 
-//>< == ! 
-if (result > 60) {
+//>< ==  
+if (result > 60) 
+//if only runs its code when the condition inside() is true
+ {
     console.log("You passed the test!");
 }
 
-//case 1: 5==5 -> true 
-// case 2: 5== "5" -> true -> true because checks values 
-//case 3: 5==="5" --> false -> false because checks value and datatype 
+// ----- Equality Comparisson Operators -----
+// Value: 5 vs 5 = same value 
+// Data Type: number vs string x= different type
 
-// if else statement 
-//---- Syntax--- 
-//if (condition){
-// code to be run if the condition is true
-//} else {
-//   code to be run if the condition is false;
-//}
+//case 1: 5 == 5 -> true 
+// case 2: 5 == "5" -> true -> true because checks values rather than data types
+//case 3: 5 === "5" --> false -> false because checks value AND datatype 
+
+// ----- "if else" Statement ------
+// This give JavaScript two paths :
+// true -> run the "if" block 
+// false -> runs the "else" block
+
+//---- Example Syntax--- 
+/* 
+if (condition){
+code to be run if the condition is true
+}else {
+code to be run if the condition is false;
+}
+*/
+
 let points = 10
 if (points > 60){
     console.log("You won!");
@@ -28,22 +41,25 @@ if (points > 60){
     console.log("You lose");
 }
 
-//Challenge 1: print if the water is boiling or not 
-//consider 100 as the boiling pint 
+//Challenge 2: Print if the water is boiling or not consider 100 as the boiling point 
 
 let boiling = 101
-if (boiling > 100){
-    console.log("It is hot!")
+if (boiling >= 100){
+    console.log("Water is boiling!")
 }else{
-    console.log("It is cold..")
+    console.log("Water is not boiling.")
 }
 
-// else-if condition
-// -- Syntax -- 
+// ----- "else-if" Condition ----- 
+// This is to check more than 2 possibilities 
+
+// --- Example Syntax --- 
 // if (condition1)
 // code to be run if the condition1 is true 
+
 //} else  if (condition2){
 //code to be run if the condition2 is true
+
 //}else 
 // code to be run if the condition are false
 //}
@@ -61,7 +77,7 @@ else{
     console.error("Error!!!! It is not valid");
 }
 
-//Challenge 1: 
+//Challenge 1: MILESTONE 
 
 let viewerAge = 20
 
@@ -90,12 +106,13 @@ else {
 //let temp = Number(prompt("Enter the temprature"));
 //console.log(getOutfit(temp));
 
-// -- && and || operators 
-// && = AND - both conditions must me true 
-// || = OR - at least one condition must be true
+// -- && and || are logical operators ---
+
+// && = AND - BOTH conditions must me true 
+// || = OR - at least ONE condition must be true
 
 let hour = 13
-;
+
 if (hour >= 12 && hour <= 16){
     console.log("Lunch time!");
 }
@@ -110,18 +127,17 @@ if(isWeekend || isHoliday){
 
 // -- bollean Parameter
 
-//function getGreeting(isVIP){
-  //  if(isVip){
-  //      return "Welcome back, valued member";
- //   }else{
- //       return "Welcome, consider joining our memebership";
-  //  }
-//}
+function getGreeting(isVIP){
+    if(isVIP){
+        return "Welcome back, valued member";
+    }else{
+    return "Welcome, consider joining our membership";
+    }
+}
+console.log(getGreeting(true));
+console.log(getGreeting(false));
 
-//console.log(getGreeting(true));
-//console.log(getGreeting(false));
-
-// Challenge 2
+// Challenge 2: Come back to this to understand more 
 
 function userType(){
     if(userType == "admin"){
