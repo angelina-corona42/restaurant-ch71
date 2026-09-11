@@ -277,7 +277,7 @@ console.log(budget);
 
 //Solution #7 -- Correct way to use the global variable "budget" inside the function is to not declare it again with "let" or "const", just use it directly.
 
-let budget = 1000; // 
+let budget = 1000;  
 
 function spendMoney(amount){
     let remaining = budget - amount; 

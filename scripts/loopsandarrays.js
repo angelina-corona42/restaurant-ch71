@@ -140,3 +140,28 @@ function getGradeLabel(score){
         return "Needs improvement";
     }
 }
+// This loops through the array //
+for (let i = 0; i < scores.length; i++){
+    let currentScore = scores[i];
+    let grade = getGradeLabel(currentScore);
+
+    console.log(currentScore);
+    console.log(grade);
+}
+
+// ------ Output String ----- //
+
+// Instead of using console.log() every single line, you can use this to keep adding text to variable 
+
+let output = "";
+
+// Example 1 //
+const names = ["Alex", "Jordan", "Sam"];
+
+let output = "";
+
+for (let i = 0; i < names.length; i++){
+    output += `Hello ${names[i]}\n`;
+}
+
+console.log(output);
