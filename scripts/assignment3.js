@@ -37,9 +37,8 @@ function applyMemberDiscount(price, isMember){
         return price;
     }
 }
-let regularPrice = 20;
 console.log(`Member Price: $${applyMemberDiscount(20, true).toFixed(2)}`);
-console.log("Regular Price: $" + regularPrice.toFixed(2));
+console.log(`Regular Price: $${applyMemberDiscount(20, false).toFixed(2)}`);
 
 function calculateTotal (price, taxRate){
     let taxAmount = price * taxRate;
